@@ -14,6 +14,8 @@ SET species = 'unspecified';
 
 SELECT * FROM animals;
 
+ROLLBACK;
+SELECT * FROM animals;
 /*Start transation*/
 BEGIN;
 /*Update transation*/
@@ -31,7 +33,11 @@ SELECT * FROM animals;
 /*Commit transation*/
 COMMIT;
 
-SELECT * FROM animals;
+
+/*Delete transation*/
+BEGIN;
+
+DELETE FROM animals
 
 /*Return to previuse state of transation*/
 
@@ -39,7 +45,8 @@ ROLLBACK;
 
 SELECT * FROM animals;
 
-/*Delete transation*/
+
+BEGIN;
 
 DELETE FROM animals
 WHERE date_of_birth > '2022-01-01';
